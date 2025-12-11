@@ -88,7 +88,12 @@ async function run() {
       const result = await lessonsCollections.find(query).toArray();
       res.send(result);
     });
-    //public less apis related
+    //public lesson apis related
+
+    app.get("/public-lessons", async (req, res) => {
+      const result = await lessonsCollections.find().toArray();
+      res.send(result);
+    });
   } finally {
     // ❌ DON'T CLOSE THE CLIENT HERE
     // await client.close();
